@@ -1,11 +1,16 @@
 <script setup lang="ts">
+import SideBar from "../components/SideBar.vue";
 import TheHeader from "../components/TheHeader.vue";
+import TheUser from "../components/TheUser.vue";
 </script>
 
 <template>
   <div class="container">
     <TheHeader />
-    <main class="main"></main>
+    <main class="main">
+      <SideBar />
+      <TheUser />
+    </main>
   </div>
 </template>
 
