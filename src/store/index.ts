@@ -79,6 +79,7 @@ const actions = {
       if (!state.searchValue) state.resultsStatus = "nothing";
     }
   },
+  
   async fetchUserForUser({ state }: ActionsContext, id: number) {
     state.userStatus = "loading";
 
