@@ -23,16 +23,12 @@ const onBackClick = () => {
     <div class="user__content" v-if="status === 'success' && user">
       <div class="wrapper">
         <div class="user__content-image">
-          <img src="/images/no-image-big.png" alt="no-image" />
+          <img src="src/assets/images/no-image-big.png" alt="no-image" />
         </div>
         <div class="user__content-info">
           <h3 class="user__content-info__title">{{ user.name }}</h3>
-          <p class="user__content-info__text">
-            <b>email:</b> {{ user.email }}
-          </p>
-          <p class="user__content-info__text">
-            <b>phone:</b> {{ user.phone }}
-          </p>
+          <p class="user__content-info__text"><b>email:</b> {{ user.email }}</p>
+          <p class="user__content-info__text"><b>phone:</b> {{ user.phone }}</p>
           <h3 class="user__content-info__title">О себе:</h3>
           <p class="user__content-info__text">
             Данный сотрудник не предоставил информации о себе

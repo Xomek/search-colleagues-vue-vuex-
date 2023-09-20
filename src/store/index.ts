@@ -79,7 +79,7 @@ const actions = {
       if (!state.searchValue) state.resultsStatus = "nothing";
     }
   },
-  async fetchUserForuser({ state }: ActionsContext, id: number) {
+  async fetchUserForUser({ state }: ActionsContext, id: number) {
     state.userStatus = "loading";
 
     state.user = initialState.user;
