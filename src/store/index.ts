@@ -1,20 +1,6 @@
-import { createStore, type ActionContext, type MutationTree } from "vuex";
-import { type User } from "@/types";
+import { createStore, type MutationTree } from "vuex";
+import type { ActionsContext, Mutations, State } from "./Users.types";
 import { getUserById, getUserByIdOrName } from "../api";
-
-export interface RootState {
-  state: State;
-}
-
-export interface State {
-  searchValue: string | null;
-  user: User | null;
-  results: User[] | null;
-  userStatus: Statuses;
-  userError: string | null;
-  resultsStatus: Statuses;
-  resultsError: string | null;
-}
 
 const initialState: State = {
   user: null,
@@ -25,13 +11,6 @@ const initialState: State = {
   resultsStatus: "nothing",
   searchValue: null,
 };
-
-interface Mutations {
-  changeSearch: (state: State, payload: string) => void;
-  resetState: (state: State) => void;
-}
-
-type Statuses = "loading" | "error" | "success" | "nothing";
 
 const state: State = JSON.parse(JSON.stringify(initialState));
 
@@ -53,8 +32,6 @@ const mutations: MutationTree<State> & Mutations = {
     state.searchValue = initialState.searchValue;
   },
 };
-
-type ActionsContext = ActionContext<State, any>;
 
 const actions = {
   async fetchUsersForResults({ state }: ActionsContext) {
@@ -79,7 +56,7 @@ const actions = {
       if (!state.searchValue) state.resultsStatus = "nothing";
     }
   },
-  
+
   async fetchUserForUser({ state }: ActionsContext, id: number) {
     state.userStatus = "loading";
 
